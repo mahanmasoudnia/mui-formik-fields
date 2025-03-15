@@ -18,9 +18,11 @@
     "typescript-eslint": "^8.26.1"
   },
   "scripts": {
-    "prepare": "husky install",
+    "precommit": "lint-staged",
+    "prepare": "husky",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
