@@ -1,0 +1,37 @@
+{
+  "name": "mui-formik-fields",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "author": "mahanmasoudnia <mahan.masoudnia81@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react-hooks": "^5.2.0"
+  }
+}
