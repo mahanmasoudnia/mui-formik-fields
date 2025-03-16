@@ -1,10 +1,9 @@
+import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import eslintPluginPrettier from "eslint-plugin-prettier";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import js from "@eslint/js";
-import prettierConfig from "eslint-config-prettier";
-import { FlatCompat } from "@eslint/eslintrc";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -39,7 +38,9 @@ export default [
       "@typescript-eslint": typescriptEslint,
     },
     languageOptions: {
+      parser: typescriptEslint.parser,
       parserOptions: {
+        project: "./tsconfig.json",
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {
@@ -50,7 +51,7 @@ export default [
     rules: {
       /*** ✅ TypeScript Rules ***/
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
 
       /*** ✅ React Rules ***/
       "react/jsx-filename-extension": ["warn", { extensions: [".tsx"] }],
@@ -60,11 +61,10 @@ export default [
       /*** ✅ Code Quality & Best Practices ***/
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "warn",
-      "no-unused-vars": "error",
       "prefer-const": "warn",
 
       /*** ✅ Prettier Integration ***/
-      "prettier/prettier": ["error"],
+      // "prettier/prettier": ["error"],
     },
   },
 ];

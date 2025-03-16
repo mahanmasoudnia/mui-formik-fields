@@ -1,3 +1,4 @@
-console.log("first");
-console.log("second");
-const mahan = "xdd";
+export default function test() {
+  console.log("first");
+  return "";
+}
