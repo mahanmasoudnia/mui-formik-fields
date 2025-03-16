@@ -60,7 +60,7 @@ export default [
       /*** ✅ Code Quality & Best Practices ***/
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "warn",
-      "no-unused-vars": "warn",
+      "no-unused-vars": "error",
       "prefer-const": "warn",
 
       /*** ✅ Prettier Integration ***/
