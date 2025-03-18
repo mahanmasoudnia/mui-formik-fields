@@ -2,7 +2,10 @@
   "name": "mui-formik-fields",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "author": "mahanmasoudnia <mahan.masoudnia81@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -11,7 +14,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
     "precommit": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "tsc"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -20,14 +24,20 @@
     ]
   },
   "dependencies": {
+    "@mui/material": "^6.4.7",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-react-hooks": "^5.2.0"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "formik": "^2.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
