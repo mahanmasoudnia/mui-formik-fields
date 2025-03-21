@@ -1,7 +1,7 @@
 const { default: ts } = require("typescript");
 
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  preset: "ts-jest",
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.(ts|tsx)$": [
