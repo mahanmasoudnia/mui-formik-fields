@@ -7,7 +7,7 @@ module.exports = {
     "^.+\\.(ts|tsx)$": [
       "ts-jest",
       {
-        tsconfig: 'tsconfig.json'
+        tsconfig: "tsconfig.json",
       },
     ],
     "^.+\\.(js|jsx)$": "babel-jest",
@@ -16,4 +16,5 @@ module.exports = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 };

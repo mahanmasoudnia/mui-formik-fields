@@ -15,12 +15,14 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
     "precommit": "lint-staged",
     "prepare": "husky",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint",
-      "eslint --fix"
+      "eslint --fix",
+      "jest"
     ]
   },
   "dependencies": {

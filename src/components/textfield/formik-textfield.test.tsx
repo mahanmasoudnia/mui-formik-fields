@@ -3,6 +3,7 @@ import FormikTextfield from "./formik-textfield";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { object } from "yup";
+import { act } from "react";
 
 describe("FormikTextfield component test", () => {
   test("render currectly and changing value", () => {
@@ -74,12 +75,7 @@ describe("FormikTextfield component test", () => {
       test: object().required("Required"),
     });
     render(
-      <Formik
-        initialValues={{ test: "" }}
-        validationSchema={testSchema}
-        isInitialValid={false}
-        onSubmit={handleSubmit}
-      >
+      <Formik initialValues={{ test: "" }} validationSchema={testSchema} onSubmit={handleSubmit}>
         <Form>
           <FormikTextfield name="test" label="test" />
           <button type="submit">Submit</button>
@@ -88,7 +84,9 @@ describe("FormikTextfield component test", () => {
     );
     const inputElement = screen.getByLabelText(/test/i);
     expect(inputElement).toBeInTheDocument();
-    fireEvent.change(inputElement, { target: { value: "" } });
+    act(() => {
+      fireEvent.change(inputElement, { target: { value: "" } });
+    });
     fireEvent.click(screen.getByText(/submit/i));
     await waitFor(() => {
       expect(screen.getByText(/required/i)).toBeInTheDocument();
