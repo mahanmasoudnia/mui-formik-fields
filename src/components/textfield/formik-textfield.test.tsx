@@ -1,7 +1,6 @@
-import React from "react";
 import { Form, Formik } from "formik";
 import FormikTextfield from "./formik-textfield";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("FormikTextfield component test", () => {
@@ -48,5 +47,26 @@ describe("FormikTextfield component test", () => {
 
     fireEvent.blur(inputElement);
     expect(await screen.findByText(/required/i)).toBeInTheDocument();
+  });
+  test("submission", async() => {
+    const handleSubmit = jest.fn();
+    render(
+      <Formik initialValues={{ test: "" }} onSubmit={handleSubmit}>
+        <Form>
+          <FormikTextfield name="test" label="test" />
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    );
+    const inputElement = screen.getByLabelText(/test/i);
+    expect(inputElement).toBeInTheDocument();
+    fireEvent.change(inputElement, { target: { value: "test" } });
+    expect(inputElement).toHaveValue("test");
+    fireEvent.click(screen.getByText(/submit/i));
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledWith(
+        { test: "test" }, 
+        expect.anything()
+      );})
   });
 });
