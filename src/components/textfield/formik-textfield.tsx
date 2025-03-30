@@ -5,11 +5,7 @@ interface FormikTextfieldProps extends Omit<TextFieldProps, "name"> {
   name: string;
 }
 
-const FormikTextfield: React.FC<FormikTextfieldProps> = ({
-  name,
-  label,
-  ...props
-}) => {
+const FormikTextfield: React.FC<FormikTextfieldProps> = ({ name, label, ...props }) => {
   const [field, meta] = useField(name);
   const error = meta.touched && meta.error;
 
