@@ -1,3 +1,2 @@
-import { FormikTextfield } from "./components/textfield";
-
-export default FormikTextfield;
+export { default } from "./textfield/index";
+export * from "./textfield/index";
